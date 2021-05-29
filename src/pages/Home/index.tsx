@@ -1,29 +1,12 @@
 import React from 'react';
-import Button from '../../components/Button';
+import Input from '../../components/Input';
 
 const Home: React.FC = () => {
- return (
-  <>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-   <Button border="solid" color="orange">
-    Click
-   </Button>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-  </>
- );
+  return (
+    <div>
+      <Input state="normal" label="Teste" type="text" placeholder="Your Text" />
+    </div>
+  );
 };
 
 export default Home;
