@@ -7,7 +7,7 @@ interface InputProps {
 export const Container = styled.div<InputProps>`
   width: 50%;
   height: 32px;
-  margin: 16px 25% 0;
+  margin: 16px 25%;
   border-radius: 25px;
   position: relative;
   ${(props) =>
@@ -28,12 +28,18 @@ export const Container = styled.div<InputProps>`
       border: 1px solid red;
     `}
 
-  p {
+
+  span {
+    margin: 0 0 0 24px;
     position: absolute;
+    top: 0;
+    transform: translateY(-125%);
+  }
+
+  p {
     bottom: 0;
     font-size: 14px;
     margin: 0 0 0 24px;
-    transform: translateY(125%);
   }
 
   input {

@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useState } from 'react';
+import React, { InputHTMLAttributes, useCallback, useState } from 'react';
 import { Container } from './style';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -6,31 +6,54 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   state?: 'normal' | 'alert' | 'wrong';
 }
 
-const Input: React.FC<InputProps> = ({ label, state, ...rest }) => {
-  const [errorMessage, setErrorMessage] = useState('');
-  const [curentState, setcurentState] = useState('');
-  const verifyInput = (value: string) => {
-    isNull(value);
-  };
+interface InputParameters {
+  value: string;
+  type: string;
+}
 
-  const isNull = (value: string) => {
+const Input: React.FC<InputProps> = ({ label, ...rest }) => {
+  const [errorMessage, setErrorMessage] = useState('');
+  const [curentState, setcurentState] =
+    useState<'normal' | 'alert' | 'wrong'>('normal');
+
+  const verifyType = useCallback(({ value, type }: InputParameters) => {
+    if (value === type) {
+      console.log('a');
+    } else {
+      console.log('b');
+    }
+  }, []);
+
+  const verifyInput = useCallback(
+    ({ value, type }: InputParameters) => {
+      fieldIsNull(value);
+      verifyType({ type, value });
+    },
+    [verifyType],
+  );
+
+  const fieldIsNull = (value: string) => {
     if (value.length === 0) {
       setcurentState('alert');
       setErrorMessage('Input está Vazio');
+    } else {
+      setcurentState('normal');
+      setErrorMessage('');
     }
   };
 
   return (
-    <Container state={state}>
-      <p>{errorMessage}</p>
+    <Container state={curentState}>
+      <span>{label}</span>
       <label htmlFor={label}>
         <input
           onBlur={(e) => {
-            verifyInput(e.target.value);
+            verifyInput({ type: e.target.type, value: e.target.value });
           }}
           name={label}
           {...rest}
         />
+        <p>{errorMessage}</p>
       </label>
     </Container>
   );

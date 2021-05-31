@@ -4,7 +4,8 @@ import Input from '../../components/Input';
 const Home: React.FC = () => {
   return (
     <div>
-      <Input state="normal" label="Teste" type="text" placeholder="Your Text" />
+      <Input label="Nome" type="text" placeholder="Nome" />
+      <Input label="Nome" type="checkbox" placeholder="Nome" />
     </div>
   );
 };
