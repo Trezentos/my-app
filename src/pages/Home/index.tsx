@@ -1,27 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../../components/Button';
 
 const Home: React.FC = () => {
  return (
   <>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-   <Button border="solid" color="orange">
-    Click
-   </Button>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
-   <Button border="outlined" color="orange">
-    Click
-   </Button>
+   <Button>Click</Button>
+   <Button>Click</Button>
+   <Button>Click</Button>
   </>
  );
 };

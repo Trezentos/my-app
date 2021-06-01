@@ -18,8 +18,26 @@ export default createGlobalStyle`
   background: #03002e;
   color: #fff;
   -webkit-font-smoothing: antialiased;
+
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
  }
  button {
   cursor: pointer;
  }
+
+ .seperator {
+  width: 100%;
+}
+
+.controls-wrapper {
+  width: 100%;
+}
+
+.carousel-wrapper {
+  width: 100%;
+}
 `;

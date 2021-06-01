@@ -1,21 +1,21 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes, useState } from 'react';
 import { Container } from './style';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  loading?: boolean;
- color?: 'orange' | 'blue' | 'red';
- border?: 'outlined' | 'solid';
 }
 
-const Button: React.FC<ButtonProps> = ({
- children,
- loading,
- color,
- border,
- ...rest
-}) => {
+const Button: React.FC<ButtonProps> = ({ children, loading, ...rest }) => {
+ const [selected, setSelected] = useState(false);
+
  return (
-  <Container type="button" {...rest} color={color} border={border}>
+  <Container
+   selected={selected}
+   type="button"
+   {...rest}
+   onClick={() => setSelected(!selected)}
+   className={`${selected}` && 'selected'}
+  >
    {loading ? 'Carregando...' : children}
   </Container>
  );
