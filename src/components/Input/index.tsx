@@ -13,8 +13,9 @@ interface InputParameters {
 
 const Input: React.FC<InputProps> = ({ label, ...rest }) => {
   const [errorMessage, setErrorMessage] = useState('');
-  const [curentState, setcurentState] =
-    useState<'normal' | 'alert' | 'wrong'>('normal');
+  const [curentState, setcurentState] = useState<'normal' | 'alert' | 'wrong'>(
+    'normal',
+  );
 
   const verifyType = useCallback(({ value, type }: InputParameters) => {
     if (value === type) {
